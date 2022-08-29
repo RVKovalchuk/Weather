@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.R
-import com.example.weather.utils.WeatherPerDays
+import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.example.weather.view.viewHolders.WeatherViewHolder
 
 class RecyclerViewAdapter : RecyclerView.Adapter<WeatherViewHolder>() {

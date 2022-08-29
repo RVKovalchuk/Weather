@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.R
-import com.example.weather.utils.WeatherPerDays
+import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.squareup.picasso.Picasso
 
 class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

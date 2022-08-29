@@ -1,15 +1,11 @@
 package com.example.weather.viewmodel
 
 import android.content.SharedPreferences
-import android.text.Editable
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.weather.App
 import com.example.weather.data.room.dataEntites.CurrentWeather
-import com.example.weather.data.sharedPreferences.ConstantsSharedPreferences
 import com.example.weather.domain.Receiver
-import com.example.weather.utils.WeatherPerDays
 import javax.inject.Inject
 
 class DaysWeatherFragmentViewModel : ViewModel() {
@@ -24,11 +20,11 @@ class DaysWeatherFragmentViewModel : ViewModel() {
     init {
         App.instance.dagger.inject(this)
         currentWeather = receiver.getCurrentWeatherFromApi()
-        receiver.getWeatherInfoFromApi()
+        receiver.getWeatherInfoFromApi("Baranovichi")
     }
 
     fun refreshWeathersInfo(){
-        receiver.getWeatherInfoFromApi()
+        receiver.getWeatherInfoFromApi("Baranovichi")
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.weather.utils
 
-import androidx.lifecycle.LiveData
 import com.example.weather.classesDTO.Forecastday
+import com.example.weather.data.room.dataEntites.WeatherPerDays
 
 object ConverterForecastFromApiToApp {
     fun convert(list: List<Forecastday>): List<WeatherPerDays> {

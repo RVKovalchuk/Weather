@@ -9,17 +9,12 @@ import android.widget.*
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.weather.R
-import com.example.weather.data.room.dataAccessObjects.CurrentWeatherDataAccessObject
 import com.example.weather.data.room.dataEntites.CurrentWeather
-import com.example.weather.data.room.databaseClasses.AppDatabase
 import com.example.weather.view.recyclersView.RecyclerViewAdapter
 import com.example.weather.view.viewHolders.ConstantsHolders
 import com.example.weather.viewmodel.DaysWeatherFragmentViewModel
 import com.squareup.picasso.Picasso
-import javax.inject.Inject
 
 
 class DaysWeatherFragment : Fragment() {
