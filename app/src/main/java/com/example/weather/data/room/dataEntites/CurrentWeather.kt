@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+@Entity(tableName = "current_weather_table")
 data class CurrentWeather(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "city") val city: String,
@@ -17,4 +18,4 @@ data class CurrentWeather(
     @ColumnInfo(name = "windDirection") val windDirection: String,
     @ColumnInfo(name = "humidity") val humidity: String,
     @ColumnInfo(name = "feelsLike") val feelsLike: String
-) :
+)
