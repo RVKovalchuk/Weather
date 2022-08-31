@@ -1,4 +1,4 @@
-package com.example.weather.classesDTO
+package com.example.weather.data.api.classesDTO
 
 data class Astro(
     val moon_illumination: String,

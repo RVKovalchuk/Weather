@@ -3,6 +3,7 @@ package com.example.weather.data.room.dataAccessObjects
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.weather.data.room.dataEntites.CurrentWeather
 
@@ -12,6 +13,6 @@ interface CurrentWeatherDataAccessObject {
     fun getCurrentWeather(): LiveData<CurrentWeather>
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCurrentWeather(currentWeather: CurrentWeather)
 }

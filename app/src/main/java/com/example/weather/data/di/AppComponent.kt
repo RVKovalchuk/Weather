@@ -1,10 +1,10 @@
 package com.example.weather.data.di
 
 import android.content.Context
-import android.content.SharedPreferences
-import com.example.weather.data.di.modules.DataModule
+import com.example.weather.data.di.modules.dataModule.DataModule
 import com.example.weather.data.di.modules.NetworkModule
-import com.example.weather.viewmodel.DaysWeatherFragmentViewModel
+import com.example.weather.viewmodel.WeatherPerDaysFragmentViewModel
+import com.example.weather.viewmodel.WeatherPerHoursFragmentViewModel
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -13,7 +13,8 @@ import javax.inject.Singleton
 @Component(modules = [NetworkModule::class, DataModule::class])
 
 interface AppComponent {
-    fun inject(daysWeatherFragmentViewModel: DaysWeatherFragmentViewModel)
+    fun inject(weatherPerDaysFragmentViewModel: WeatherPerDaysFragmentViewModel)
+    fun inject(weatherPerHoursFragmentViewModel: WeatherPerHoursFragmentViewModel)
 
     @Component.Factory
     interface Factory {

@@ -8,7 +8,7 @@ import com.example.weather.R
 import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.squareup.picasso.Picasso
 
-class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class WeatherPerDaysViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(weatherPerDay: WeatherPerDays) {
         val date = itemView.findViewById<TextView>(R.id.list_item_weather_date)
         val weatherType = itemView.findViewById<TextView>(R.id.list_item_weather_type)
@@ -22,7 +22,6 @@ class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         Picasso.get()
             .load(ConstantsHolders.HTTP + weatherPerDay.weatherIcon)
-            .centerCrop()
             .error(R.drawable.ic_error)
             .into(image)
     }

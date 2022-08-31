@@ -1,9 +1,9 @@
 package com.example.weather.utils
 
-import com.example.weather.classesDTO.WeatherDTO
+import com.example.weather.data.api.classesDTO.WeatherDTO
 import com.example.weather.data.room.dataEntites.CurrentWeather
 
-object ConverterCurrentFromApiToApp {
+object ConverterCurrentWeatherFromApi {
     fun convert(weather: WeatherDTO): CurrentWeather = CurrentWeather(
         city = weather.location.name,
         country = weather.location.country,

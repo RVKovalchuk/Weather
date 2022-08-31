@@ -1,6 +1,6 @@
 package com.example.weather.data.api
 
-import com.example.weather.classesDTO.WeatherDTO
+import com.example.weather.data.api.classesDTO.WeatherDTO
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

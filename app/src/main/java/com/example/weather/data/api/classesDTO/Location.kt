@@ -1,4 +1,4 @@
-package com.example.weather.classesDTO
+package com.example.weather.data.api.classesDTO
 
 data class Location(
     val country: String,

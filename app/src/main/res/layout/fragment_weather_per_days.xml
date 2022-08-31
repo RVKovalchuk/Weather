@@ -168,7 +168,7 @@
         android:id="@+id/fragment_days_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/weather_item"
+        tools:listitem="@layout/weather_per_days_item"
         app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_wind_direction"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
