@@ -24,12 +24,12 @@ class WeatherPerHoursViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
         val conditionImage =
             itemView.findViewById<ImageView>(R.id.item_weather_per_hours_condition_image)
 
-        time.text = weatherPerHours.time
+        time.text = weatherPerHours.time.substringAfter(' ')
         val windSpeedText = "Wind speed: ${weatherPerHours.windSpeed} kmph"
         windSpeed.text = windSpeedText
         val windDirectionText = "Wind direction: ${weatherPerHours.directionOfWind}"
         windDirection.text = windDirectionText
-        val humidityText = "Humidity: ${weatherPerHours.humidity}"
+        val humidityText = "Humidity: ${weatherPerHours.humidity}%"
         humidity.text = humidityText
         val chanceOfRainText = "Chance of rain: ${weatherPerHours.chanceOfRain}"
         chanceOfRain.text = chanceOfRainText
