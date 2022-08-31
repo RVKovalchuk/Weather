@@ -31,9 +31,9 @@ class WeatherPerHoursViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
         windDirection.text = windDirectionText
         val humidityText = "Humidity: ${weatherPerHours.humidity}%"
         humidity.text = humidityText
-        val chanceOfRainText = "Chance of rain: ${weatherPerHours.chanceOfRain}"
+        val chanceOfRainText = "Chance of rain: ${weatherPerHours.chanceOfRain}%"
         chanceOfRain.text = chanceOfRainText
-        val chanceOfSnowText = "Chance of snow: ${weatherPerHours.chanceOfSnow}"
+        val chanceOfSnowText = "Chance of snow: ${weatherPerHours.chanceOfSnow}%"
         chanceOfSnow.text = chanceOfSnowText
         val temperatureText = "${weatherPerHours.temperature}°C"
         temperature.text = temperatureText

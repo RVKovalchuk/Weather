@@ -49,7 +49,7 @@
             android:paddingEnd="8dp"
             android:text="London"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_days_imageview_condition_image" />
@@ -97,7 +97,7 @@
             android:paddingEnd="8dp"
             android:text="25°C (feels like 22°C)"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_condition" />

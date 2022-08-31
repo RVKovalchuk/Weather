@@ -24,7 +24,7 @@
             android:fontFamily="sans-serif"
             android:text="2022-08-28"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
             android:maxLines="1"
             android:text="Patchy rain possible"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_temperature"
             app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_temperature" />
 
@@ -60,7 +60,7 @@
             android:maxLines="1"
             android:text="Temperature: 28°C / 22°C"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_date"
             app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_date" />
 
