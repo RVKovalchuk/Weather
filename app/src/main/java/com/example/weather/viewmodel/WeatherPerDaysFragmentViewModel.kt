@@ -6,8 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.weather.App
 import com.example.weather.data.room.dataEntites.CurrentWeather
 import com.example.weather.data.room.dataEntites.WeatherPerDays
-import com.example.weather.data.room.dataEntites.WeatherPerHours
-import com.example.weather.domain.Receiver
+import com.example.weather.model.domain.Receiver
 import javax.inject.Inject
 
 class WeatherPerDaysFragmentViewModel : ViewModel() {

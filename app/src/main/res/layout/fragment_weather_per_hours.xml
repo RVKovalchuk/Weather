@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/blue">
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="2022-08-28"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Patchy rain possible"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_temperature"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_temperature" />
+
+        <ImageView
+            android:id="@+id/fragment_weather_per_hours_condition_image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_hours_date" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Temperature: 28°C / 22°C"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_date"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_date" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_max_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Max wind speed: 11 kmph"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_condition"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_condition" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_average_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Average humidity: 72%"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_max_wind_speed"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_max_wind_speed" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_chance_of_rain_and_snow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Chance of rain / snow: 58% / 0%"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_average_humidity"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_average_humidity" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_time_of_sunrise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Time of sunrise: 06:14 AM"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_date"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_chance_of_rain_and_snow" />
+
+        <TextView
+            android:id="@+id/fragment_weather_per_hours_time_of_sunset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Time of sunset: 07:45 PM"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_hours_date"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_hours_time_of_sunrise" />
+
+        <ImageButton
+            android:id="@+id/fragment_days_button_refresh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_weather_per_hours_time_of_sunset"
+            app:layout_constraintEnd_toEndOf="@id/fragment_weather_per_hours_condition_image"
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_hours_time_of_sunrise" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_weather_per_hours_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_wind_direction"
+        tools:listitem="@layout/weather_per_hours_item" />
+
+</LinearLayout>

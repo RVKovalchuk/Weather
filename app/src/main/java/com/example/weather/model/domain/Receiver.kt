@@ -1,4 +1,4 @@
-package com.example.weather.domain
+package com.example.weather.model.domain
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,9 +9,9 @@ import com.example.weather.data.MainRepository
 import com.example.weather.data.room.dataEntites.CurrentWeather
 import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.example.weather.data.room.dataEntites.WeatherPerHours
-import com.example.weather.utils.ConverterCurrentWeatherFromApi
-import com.example.weather.utils.ConverterWeatherPerDaysFromApi
-import com.example.weather.utils.ConverterWeatherPerHoursFromApi
+import com.example.weather.model.utils.ConverterCurrentWeatherFromApi
+import com.example.weather.model.utils.ConverterWeatherPerDaysFromApi
+import com.example.weather.model.utils.ConverterWeatherPerHoursFromApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

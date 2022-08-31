@@ -1,4 +1,4 @@
-package com.example.weather.utils
+package com.example.weather.model.utils
 
 import com.example.weather.data.api.classesDTO.WeatherDTO
 import com.example.weather.data.room.dataEntites.CurrentWeather
@@ -16,5 +16,4 @@ object ConverterCurrentWeatherFromApi {
         humidity = weather.current.humidity.toString(),
         feelsLike = weather.current.feelslike_c.toString()
     )
-
 }

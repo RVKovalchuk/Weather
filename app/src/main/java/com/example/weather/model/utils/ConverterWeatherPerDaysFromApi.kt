@@ -1,4 +1,4 @@
-package com.example.weather.utils
+package com.example.weather.model.utils
 
 import com.example.weather.data.api.classesDTO.Forecastday
 import com.example.weather.data.room.dataEntites.WeatherPerDays
@@ -6,9 +6,7 @@ import com.example.weather.data.room.dataEntites.WeatherPerDays
 object ConverterWeatherPerDaysFromApi {
     fun convert(list: List<Forecastday>): List<WeatherPerDays> {
         val listOfWeather = mutableListOf<WeatherPerDays>()
-       /* val listOfWeatherPerHours = mutableListOf<WeatherPerHours>()*/
         var id = 0
-
         list.forEach { forecastDay ->
             id++
             listOfWeather.add(
