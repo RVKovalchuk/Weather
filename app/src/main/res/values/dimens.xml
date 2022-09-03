@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="margin_3dp">3dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
+
+    <dimen name="padding_8dp">8dp</dimen>
+
+    <dimen name="text_size_not_important">18sp</dimen>
+    <dimen name="text_size_important">20sp</dimen>
+    <dimen name="text_size_main">24sp</dimen>
+
+    <dimen name="image_item_main_size">45dp</dimen>
+    <dimen name="image_main_size">75dp</dimen>
+
+    <dimen name="button_size">50dp</dimen>
+</resources>

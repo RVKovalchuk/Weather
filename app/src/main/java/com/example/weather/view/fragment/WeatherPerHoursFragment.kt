@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.R
 import com.example.weather.data.room.dataEntites.WeatherPerDays
-import com.example.weather.data.room.dataEntites.WeatherPerHours
-import com.example.weather.view.MainActivity
-import com.example.weather.view.recyclersView.WeatherPerDaysRecyclerViewAdapter
 import com.example.weather.view.recyclersView.WeatherPerHoursRecyclerViewAdapter
 import com.example.weather.view.viewHolders.ConstantsHolders
 import com.example.weather.viewmodel.WeatherPerHoursFragmentViewModel
@@ -25,22 +22,10 @@ class WeatherPerHoursFragment : Fragment() {
     private lateinit var weatherPerHoursRecyclerviewAdapter: WeatherPerHoursRecyclerViewAdapter
     private lateinit var weatherPerDays: WeatherPerDays
 
-    private var listWeatherPerHours = listOf<WeatherPerHours>()
-        set(value) {
-            if (field == value) return
-            field = value
-            weatherPerHoursRecyclerviewAdapter.addItems(
-                viewModel.selectWeatherPerHoursForChosenDay(
-                    field, weatherPerDays
-                )
-            )
-        }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_weather_per_hours, container, false)
     }
 
@@ -50,18 +35,16 @@ class WeatherPerHoursFragment : Fragment() {
         initRecyclerView()
 
         weatherPerHoursRecyclerviewAdapter.addItems(
-            viewModel.selectWeatherPerHoursForChosenDay(listWeatherPerHours, weatherPerDays)
+            viewModel.selectWeatherPerHoursForChosenDay(weatherPerDays)
         )
 
         viewModel.weatherPerHours.observe(viewLifecycleOwner) {
             if (it != null) {
-                listWeatherPerHours = it
                 weatherPerHoursRecyclerviewAdapter.addItems(
-                    viewModel.selectWeatherPerHoursForChosenDay(listWeatherPerHours, weatherPerDays)
+                    viewModel.selectWeatherPerHoursForChosenDay(weatherPerDays)
                 )
             }
         }
-
     }
 
     private fun setWeatherPerDaysToMainCard() {
@@ -110,7 +93,7 @@ class WeatherPerHoursFragment : Fragment() {
         recyclerView?.layoutManager = LinearLayoutManager(requireContext())
         recyclerView?.adapter = weatherPerHoursRecyclerviewAdapter
         weatherPerHoursRecyclerviewAdapter.addItems(
-            viewModel.selectWeatherPerHoursForChosenDay(listWeatherPerHours, weatherPerDays)
+            viewModel.selectWeatherPerHoursForChosenDay(weatherPerDays)
         )
     }
 }

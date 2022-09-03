@@ -1,5 +1,6 @@
 package com.example.weather.data
 
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import com.example.weather.data.room.dataAccessObjects.CurrentWeatherDataAccessObject
 import com.example.weather.data.room.dataAccessObjects.WeatherPerDaysDataAccessObject
@@ -7,6 +8,7 @@ import com.example.weather.data.room.dataAccessObjects.WeatherPerHoursDataAccess
 import com.example.weather.data.room.dataEntites.CurrentWeather
 import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.example.weather.data.room.dataEntites.WeatherPerHours
+import com.example.weather.data.sharedPreferences.ConstantsSharedPreferences
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
@@ -14,7 +16,8 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(
     private val currentWeatherDataAccessObject: CurrentWeatherDataAccessObject,
     private val weatherPerDaysDataAccessObject: WeatherPerDaysDataAccessObject,
-    private val weatherPerHoursDataAccessObject: WeatherPerHoursDataAccessObject
+    private val weatherPerHoursDataAccessObject: WeatherPerHoursDataAccessObject,
+    private val sharedPreferences: SharedPreferences
 ) {
 
     fun insertToDbCurrentWeather(currentWeather: CurrentWeather) {
@@ -43,4 +46,14 @@ class MainRepository @Inject constructor(
 
     fun getFromDbWeatherPerHours(): LiveData<List<WeatherPerHours>> =
         weatherPerHoursDataAccessObject.getWeatherPerHoursFromDb()
+
+    fun insertToSharedPreferences(city: String) {
+        sharedPreferences.edit()
+            .putString(ConstantsSharedPreferences.KEY_OF_PREFERENCE_FOR_LOCATION, city).apply()
+    }
+
+    fun getFromSharedPreferences(): String? = sharedPreferences.getString(
+        ConstantsSharedPreferences.KEY_OF_PREFERENCE_FOR_LOCATION,
+        ConstantsSharedPreferences.DEFAULT_LOCATION
+    )
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.weather.R
 import com.example.weather.data.room.dataEntites.WeatherPerDays
-import com.example.weather.data.room.dataEntites.WeatherPerHours
 import com.example.weather.view.fragment.WeatherPerDaysFragment
 import com.example.weather.view.fragment.WeatherPerHoursFragment
 import com.example.weather.view.viewHolders.ConstantsHolders
@@ -14,7 +13,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setDaysWeatherFragment()
     }
 

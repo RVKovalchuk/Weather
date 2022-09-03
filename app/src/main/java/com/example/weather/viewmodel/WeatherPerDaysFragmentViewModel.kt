@@ -1,11 +1,11 @@
 package com.example.weather.viewmodel
 
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.weather.App
 import com.example.weather.data.room.dataEntites.CurrentWeather
 import com.example.weather.data.room.dataEntites.WeatherPerDays
+import com.example.weather.data.sharedPreferences.ConstantsSharedPreferences
 import com.example.weather.model.domain.Receiver
 import javax.inject.Inject
 
@@ -13,21 +13,25 @@ class WeatherPerDaysFragmentViewModel : ViewModel() {
     @Inject
     lateinit var receiver: Receiver
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
     val currentWeather: LiveData<CurrentWeather>
     val weatherPerDays: LiveData<List<WeatherPerDays>>
 
+    var city: String = ""
+
     init {
         App.instance.dagger.inject(this)
-        receiver.getWeatherInfoFromApi("Brest")
+        city = receiver.getSharedPreferences().toString()
+        receiver.getWeatherInfoFromApi(city.ifBlank { ConstantsSharedPreferences.DEFAULT_LOCATION })
         currentWeather = receiver.getCurrentWeatherFromDb()
         weatherPerDays = receiver.getWeatherPerDaysFromDb()
     }
 
-    fun refreshWeathersInfo() {
-        receiver.getWeatherInfoFromApi("Brest")
+    fun refreshWeathersInfo(city: String) {
+        receiver.getWeatherInfoFromApi(city = city)
+    }
+
+    fun insertToSharedPreferences(city: String) {
+        receiver.insertToSharedPreferences(city = city)
     }
 
 }

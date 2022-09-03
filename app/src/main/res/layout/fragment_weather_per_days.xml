@@ -10,166 +10,197 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="@dimen/margin_5dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:layout_marginEnd="@dimen/margin_5dp"
         android:background="@color/blue">
 
         <TextView
-            android:id="@+id/fragment_days_textview_date"
+            android:id="@+id/fragment_weather_per_days_textview_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_8dp"
             android:fontFamily="sans-serif"
-            android:text="2022-08-28 21:30"
+            android:text="@string/fragment_weather_per_days_textview_date"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/fragment_days_imageview_condition_image"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="TODO"
+            android:id="@+id/fragment_weather_per_days_imageview_condition_image"
+            android:layout_width="@dimen/image_main_size"
+            android:layout_height="@dimen/image_main_size"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:contentDescription="@string/fragment_weather_per_days_imageview_condition_image"
             android:src="@drawable/ic_error"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/fragment_days_textview_date" />
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_days_textview_date" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_city"
+            android:id="@+id/fragment_weather_per_days_textview_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="London"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_city"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size_main"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_weather_per_days_imageview_condition_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_imageview_condition_image" />
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_days_imageview_condition_image" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_country"
+            android:id="@+id/fragment_weather_per_days_textview_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="London"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_country"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_city" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_city" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_condition"
+            android:id="@+id/fragment_weather_per_days_textview_condition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="Sunny"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_condition"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_country" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_country" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_temperature"
+            android:id="@+id/fragment_weather_per_days_textview_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="25°C (feels like 22°C)"
+            android:paddingStart="@dimen/margin_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_temperature"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_condition" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_condition" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_humidity"
+            android:id="@+id/fragment_weather_per_days_textview_humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="Humidity: 68%"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_humidity"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_temperature" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_temperature" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_wind_speed"
+            android:id="@+id/fragment_weather_per_days_textview_wind_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="Wind speed: 11.2 kmph"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_wind_speed"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_humidity" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_humidity" />
 
         <TextView
-            android:id="@+id/fragment_days_textview_wind_direction"
+            android:id="@+id/fragment_weather_per_days_textview_wind_direction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="8dp"
-            android:text="Direction: ENE"
+            android:paddingStart="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_8dp"
+            android:text="@string/fragment_weather_per_days_textview_wind_direction"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_important"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_wind_speed" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_wind_speed" />
 
         <ImageButton
-            android:id="@+id/fragment_days_button_refresh"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/fragment_days_textview_wind_direction"
-            app:layout_constraintTop_toTopOf="@id/fragment_days_textview_wind_direction"
+            android:id="@+id/fragment_weather_per_days_button_refresh"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/fragment_weather_per_days_button_refresh"
+            android:focusable="true"
             android:src="@drawable/ic_refresh"
-            android:background="@android:color/transparent"/>
+            app:layout_constraintBottom_toBottomOf="@id/fragment_weather_per_days_textview_wind_direction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_days_textview_wind_direction" />
 
+        <ImageButton
+            android:id="@+id/fragment_weather_per_days_button_search"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/fragment_weather_per_days_button_search"
+            android:focusable="true"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_weather_per_days_textview_wind_direction"
+            app:layout_constraintStart_toStartOf="@id/fragment_weather_per_days_textview_date"
+            app:layout_constraintTop_toTopOf="@id/fragment_weather_per_days_textview_wind_direction" />
 
+        <EditText
+            android:id="@+id/fragment_weather_per_days_edittext_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:layout_marginEnd="@dimen/margin_25dp"
+            android:autofillHints="name"
+            android:ellipsize="end"
+            android:hint="@string/fragment_weather_per_days_edittext_city"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_not_important"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/fragment_weather_per_days_button_refresh"
+            app:layout_constraintStart_toEndOf="@id/fragment_weather_per_days_button_search"
+            app:layout_constraintTop_toBottomOf="@id/fragment_weather_per_days_textview_wind_direction" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_days_recyclerview"
+        android:id="@+id/fragment_weather_per_days_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/weather_per_days_item"
-        app:layout_constraintTop_toBottomOf="@id/fragment_days_textview_wind_direction"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        tools:listitem="@layout/weather_per_days_item" />
 </LinearLayout>

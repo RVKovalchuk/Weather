@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,21 +25,14 @@ class WeatherPerDaysFragment : Fragment() {
     private val viewModel: WeatherPerDaysFragmentViewModel by activityViewModels()
     private lateinit var weatherAdapter: WeatherPerDaysRecyclerViewAdapter
 
-    private var listWeatherPerDays = listOf<WeatherPerDays>()
-        set(value) {
-            if (field == value) return
-            field = value
-            weatherAdapter.addItems(field)
-        }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         clickOnButtonRefresh()
-
+        clickOnButtonSearch()
+        changeSharedPreferences()
         initRecyclerView()
-        weatherAdapter.addItems(listWeatherPerDays)
 
         viewModel.currentWeather.observe(viewLifecycleOwner) {
             if (it != null) {
@@ -46,14 +41,14 @@ class WeatherPerDaysFragment : Fragment() {
         }
         viewModel.weatherPerDays.observe(viewLifecycleOwner) {
             if (it != null) {
-                listWeatherPerDays = it
                 weatherAdapter.addItems(it)
             }
         }
     }
 
     private fun initRecyclerView() {
-        val recyclerView = requireView().findViewById<RecyclerView>(R.id.fragment_days_recyclerview)
+        val recyclerView =
+            requireView().findViewById<RecyclerView>(R.id.fragment_weather_per_days_recyclerview)
         weatherAdapter = WeatherPerDaysRecyclerViewAdapter(object :
             WeatherPerDaysRecyclerViewAdapter.OnItemClickListener {
             override fun clickOnItem(weatherPerDay: WeatherPerDays) {
@@ -62,30 +57,66 @@ class WeatherPerDaysFragment : Fragment() {
         })
         recyclerView.adapter = weatherAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        weatherAdapter.addItems(listWeatherPerDays)
     }
 
     private fun clickOnButtonRefresh() {
-        val buttonRefresh = view?.findViewById<ImageButton>(R.id.fragment_days_button_refresh)
-
+        val buttonRefresh =
+            view?.findViewById<ImageButton>(R.id.fragment_weather_per_days_button_refresh)
         buttonRefresh?.setOnClickListener {
-            viewModel.refreshWeathersInfo()
+            viewModel.receiver.getSharedPreferences()
+                ?.let { sharedPreferences -> viewModel.refreshWeathersInfo(sharedPreferences) }
+        }
+    }
+
+    private fun clickOnButtonSearch() {
+        val buttonSearch =
+            view?.findViewById<ImageButton>(R.id.fragment_weather_per_days_button_search)
+        val editText = view?.findViewById<EditText>(R.id.fragment_weather_per_days_edittext_city)
+
+        buttonSearch?.setOnClickListener {
+            if (editText?.isVisible == false) {
+                editText.isVisible = true
+            } else {
+                editText?.isVisible = false
+            }
+        }
+    }
+
+    private fun changeSharedPreferences() {
+        val editText = view?.findViewById<EditText>(R.id.fragment_weather_per_days_edittext_city)
+
+        editText?.setOnEditorActionListener { textView, i, _ ->
+            when (i) {
+                EditorInfo.IME_ACTION_DONE -> {
+                    textView.text.let {
+                        viewModel.refreshWeathersInfo(it.toString())
+                        viewModel.insertToSharedPreferences(it.toString())
+                    }
+                }
+            }
+            true
         }
     }
 
     private fun fillMainCard(currentWeather: CurrentWeather) {
-        val date = requireView().findViewById<TextView>(R.id.fragment_days_textview_date)
-        val city = requireView().findViewById<TextView>(R.id.fragment_days_textview_city)
-        val country = requireView().findViewById<TextView>(R.id.fragment_days_textview_country)
-        val condition = requireView().findViewById<TextView>(R.id.fragment_days_textview_condition)
+        val date =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_date)
+        val city =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_city)
+        val country =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_country)
+        val condition =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_condition)
         val temperature =
-            requireView().findViewById<TextView>(R.id.fragment_days_textview_temperature)
-        val humidity = requireView().findViewById<TextView>(R.id.fragment_days_textview_humidity)
-        val windSpeed = requireView().findViewById<TextView>(R.id.fragment_days_textview_wind_speed)
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_temperature)
+        val humidity =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_humidity)
+        val windSpeed =
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_wind_speed)
         val windDirection =
-            requireView().findViewById<TextView>(R.id.fragment_days_textview_wind_direction)
+            requireView().findViewById<TextView>(R.id.fragment_weather_per_days_textview_wind_direction)
         val conditionImage =
-            requireView().findViewById<ImageView>(R.id.fragment_days_imageview_condition_image)
+            requireView().findViewById<ImageView>(R.id.fragment_weather_per_days_imageview_condition_image)
 
         date.text = currentWeather.timeUpdate
         city.text = currentWeather.city

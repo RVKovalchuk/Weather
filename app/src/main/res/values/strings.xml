@@ -1,5 +1,47 @@
 <resources>
     <string name="app_name">Weather</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="fragment_weather_per_days_textview_date">2022–08–28 21:30</string>
+    <string name="fragment_weather_per_days_imageview_condition_image">condition of weather</string>
+    <string name="fragment_weather_per_days_textview_city">London</string>
+    <string name="fragment_weather_per_days_textview_country">Great Britain</string>
+    <string name="fragment_weather_per_days_textview_condition">Sunny</string>
+    <string name="fragment_weather_per_days_textview_temperature">25°C (feels like 22°C)</string>
+    <string name="fragment_weather_per_days_textview_humidity">Humidity: 68%</string>
+    <string name="fragment_weather_per_days_textview_wind_speed">Wind speed: 11.2 kmph</string>
+    <string name="fragment_weather_per_days_textview_wind_direction">Direction: ENE</string>
+    <string name="fragment_weather_per_days_button_refresh">refresh button</string>
+    <string name="fragment_weather_per_days_button_search">search button</string>
+    <string name="fragment_weather_per_days_edittext_city">City</string>
+
+
+    <string name="fragment_weather_per_hours_date">2022–08–28</string>
+    <string name="fragment_weather_per_hours_condition">Patchy rain possible</string>
+    <string name="fragment_weather_per_hours_condition_image">condition of weather</string>
+    <string name="fragment_weather_per_hours_temperature">Temperature: 28°C / 22°C</string>
+    <string name="fragment_weather_per_hours_max_wind_speed">Max wind speed: 11 kmph</string>
+    <string name="fragment_weather_per_hours_average_humidity">Average humidity: 72%</string>
+    <string name="fragment_weather_per_hours_chance_of_rain_and_snow">Chance of rain / snow: 58% / 0%</string>
+    <string name="fragment_weather_per_hours_time_of_sunrise">Time of sunrise: 06:14 AM</string>
+    <string name="fragment_weather_per_hours_time_of_sunset">Time of sunset: 07:45 PM</string>
+    <string name="fragment_weather_per_hours_button_share">share button</string>
+
+    <string name="list_item_weather_date">22.12.2022</string>
+    <string name="list_item_weather_type">Weather type</string>
+    <string name="list_item_weather_image">Weather image</string>
+    <string name="list_item_weather_temperature">max / min</string>
+
+    <string name="item_weather_per_hours_condition_image">condition image</string>
+    <string name="item_weather_per_hours_condition">Sunny</string>
+    <string name="item_weather_per_hours_temperature">20.4°C</string>
+    <string name="item_weather_per_hours_chance_of_snow">Chance of snow: 68%</string>
+    <string name="item_weather_per_hours_chance_of_rain">Chance of rain: 68%</string>
+    <string name="item_weather_per_hours_humidity">Humidity: 68%</string>
+    <string name="item_weather_per_hours_wind_direction">Wind direction: SSW</string>
+    <string name="item_weather_per_hours_wind_speed">Wind speed: 8.9 kmph</string>
+    <string name="item_weather_per_hours_time">2022–09–02 20:00</string>
+
+
 </resources>

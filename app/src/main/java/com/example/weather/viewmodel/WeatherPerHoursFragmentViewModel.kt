@@ -20,14 +20,13 @@ class WeatherPerHoursFragmentViewModel : ViewModel() {
     }
 
     fun selectWeatherPerHoursForChosenDay(
-        listWeatherPerHours: List<WeatherPerHours>,
         weatherPerDay: WeatherPerDays
     ): List<WeatherPerHours> {
         val result = mutableListOf<WeatherPerHours>()
-        if (listWeatherPerHours.isNotEmpty()) {
-            for (i in listWeatherPerHours.indices) {
-                if (listWeatherPerHours[i].time.substringBefore(' ') == weatherPerDay.date) {
-                    result.add(listWeatherPerHours[i])
+        if (weatherPerHours.value?.isNotEmpty() == true) {
+            for (i in weatherPerHours.value ?: emptyList()) {
+                if (i.time.substringBefore(' ') == weatherPerDay.date) {
+                    result.add(i)
                 }
             }
         }
