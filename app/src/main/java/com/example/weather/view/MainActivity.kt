@@ -2,6 +2,8 @@ package com.example.weather.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextThemeWrapper
+import androidx.appcompat.app.AlertDialog
 import com.example.weather.R
 import com.example.weather.data.room.dataEntites.WeatherPerDays
 import com.example.weather.view.fragment.WeatherPerDaysFragment
@@ -16,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setDaysWeatherFragment()
     }
 
-    //Переключение на фрагмент с погодой по дням
     private fun setDaysWeatherFragment() {
         supportFragmentManager
             .beginTransaction()
@@ -39,6 +40,24 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main_activity_fragments_placeholder, weatherPerHoursFragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 1) {
+            super.onBackPressed()
+            AlertDialog.Builder(ContextThemeWrapper(this, R.style.Theme_MovieSearch_DialogAlert))
+                .setTitle(R.string.title)
+                .setIcon(R.drawable.ic_exit)
+                .setPositiveButton(R.string.button_positive) { _, _ ->
+                    finish()
+                }
+                .setNegativeButton(R.string.button_negative) { _, _ ->
+                    setDaysWeatherFragment()
+                }
+                .show()
+        } else {
+            super.onBackPressed()
+        }
     }
 
 }

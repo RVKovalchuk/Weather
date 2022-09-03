@@ -26,7 +26,8 @@ class WeatherPerDaysFragmentViewModel : ViewModel() {
         weatherPerDays = receiver.getWeatherPerDaysFromDb()
     }
 
-    fun refreshWeathersInfo(city: String) {
+    fun refreshWeathersInfo() {
+        this.city = receiver.getSharedPreferences().toString()
         receiver.getWeatherInfoFromApi(city = city)
     }
 

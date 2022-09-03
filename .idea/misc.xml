@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/M.Kovalek/.gradle/caches/transforms-3/ded13e77e5e93b232fadd0ff264f4bf0/transformed/material-1.6.1/res/drawable/mtrl_ic_error.xml" value="0.191" />
+        <entry key="..\:/Users/M.Kovalek/AndroidStudioProjects/Weather2/app/src/main/res/drawable/ic_exit.xml" value="0.1" />
         <entry key="..\:/Users/M.Kovalek/AndroidStudioProjects/Weather2/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/M.Kovalek/AndroidStudioProjects/Weather2/app/src/main/res/layout/fragment_days_weather.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/M.Kovalek/AndroidStudioProjects/Weather2/app/src/main/res/layout/fragment_hours.xml" value="0.2346014492753623" />

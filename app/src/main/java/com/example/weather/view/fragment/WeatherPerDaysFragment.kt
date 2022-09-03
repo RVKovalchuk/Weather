@@ -63,8 +63,7 @@ class WeatherPerDaysFragment : Fragment() {
         val buttonRefresh =
             view?.findViewById<ImageButton>(R.id.fragment_weather_per_days_button_refresh)
         buttonRefresh?.setOnClickListener {
-            viewModel.receiver.getSharedPreferences()
-                ?.let { sharedPreferences -> viewModel.refreshWeathersInfo(sharedPreferences) }
+            viewModel.refreshWeathersInfo()
         }
     }
 
@@ -89,8 +88,8 @@ class WeatherPerDaysFragment : Fragment() {
             when (i) {
                 EditorInfo.IME_ACTION_DONE -> {
                     textView.text.let {
-                        viewModel.refreshWeathersInfo(it.toString())
                         viewModel.insertToSharedPreferences(it.toString())
+                        viewModel.refreshWeathersInfo()
                     }
                 }
             }
@@ -141,7 +140,6 @@ class WeatherPerDaysFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_weather_per_days, container, false)
     }
 }
