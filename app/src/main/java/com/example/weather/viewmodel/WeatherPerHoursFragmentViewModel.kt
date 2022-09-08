@@ -1,5 +1,7 @@
 package com.example.weather.viewmodel
 
+import android.content.Intent
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.weather.App
@@ -31,5 +33,14 @@ class WeatherPerHoursFragmentViewModel : ViewModel() {
             }
         }
         return result
+    }
+
+    fun shareWeatherPerCurrentDay(weatherPerCurrentDay: String) : Intent{
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, weatherPerCurrentDay)
+            type = "text/plain"
+        }
+        return Intent.createChooser(intent, null)
     }
 }

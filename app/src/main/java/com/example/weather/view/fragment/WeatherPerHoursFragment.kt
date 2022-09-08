@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
@@ -21,6 +22,7 @@ class WeatherPerHoursFragment : Fragment() {
     private val viewModel: WeatherPerHoursFragmentViewModel by activityViewModels()
     private lateinit var weatherPerHoursRecyclerviewAdapter: WeatherPerHoursRecyclerViewAdapter
     private lateinit var weatherPerDays: WeatherPerDays
+    private lateinit var weatherPerCurrentDay: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class WeatherPerHoursFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setWeatherPerDaysToMainCard()
         initRecyclerView()
+        shareWeather(weatherPerCurrentDay)
 
         weatherPerHoursRecyclerviewAdapter.addItems(
             viewModel.selectWeatherPerHoursForChosenDay(weatherPerDays)
@@ -84,6 +87,11 @@ class WeatherPerHoursFragment : Fragment() {
             .load(ConstantsHolders.HTTP + weatherPerDays.weatherIcon)
             .error(R.drawable.ic_error)
             .into(conditionImage)
+
+        weatherPerCurrentDay = "Expected weather for ${weatherPerDays.date}.\n" +
+                "$maxAndMinTemperature.\nCondition: ${weatherPerDays.weatherCondition}.\n" +
+                "$windSpeed.\n$averageHumidity.\n$chanceOfRainAndSnow.\n$timeOfSunrise.\n$timeOfSunset."
+
     }
 
     private fun initRecyclerView() {
@@ -95,5 +103,13 @@ class WeatherPerHoursFragment : Fragment() {
         weatherPerHoursRecyclerviewAdapter.addItems(
             viewModel.selectWeatherPerHoursForChosenDay(weatherPerDays)
         )
+    }
+
+    private fun shareWeather(weatherPerCurrentDay: String) {
+        val buttonShare =
+            view?.findViewById<ImageButton>(R.id.fragment_weather_per_hours_button_share)
+        buttonShare?.setOnClickListener {
+            startActivity(viewModel.shareWeatherPerCurrentDay(weatherPerCurrentDay))
+        }
     }
 }
